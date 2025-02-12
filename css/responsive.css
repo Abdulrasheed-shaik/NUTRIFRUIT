@@ -300,9 +300,35 @@
     background-color: #fff; /* Change background color on focus */
     color: #000; /* Change text color on focus */
   }
-  
   /*end header section*/
-     
+  .login_form-container {
+    margin: 20px;
+    width: 100%;
+    align-items: center;
+  }
+  .login_form-container input,
+  .login_form-container button,
+  .google-signin .g_id_signin {
+    width: 100% !important;
+    margin: 5px 0 !important;
+  }
+  .qr-code-container {
+    margin-top: 20px;
+  }
+  .qr-code-container canvas {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .flip-container, .flipper, .front, .back {
+    margin-top: -20px;
+    width: 110% !important;
+  }
+  .footer_section{
+    font-size: 10px;
+}
+.login_form-container form div {
+  margin-bottom: -2px;
+}  
 }
 @media (max-width: 768px) {
 

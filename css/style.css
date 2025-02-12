@@ -863,8 +863,7 @@ a:focus {
 @media (max-width: 768px) {
   .login_form-container {
     margin: 20px;
-    width: 80%;
-    flex-direction: column;
+    width: 100%;
     align-items: center;
   }
   .login_form-container input,
@@ -881,6 +880,7 @@ a:focus {
     height: 150px !important;
   }
   .flip-container, .flipper, .front, .back {
+    margin-top: 20px;
     width: 100% !important;
   }
   .footer_section{
