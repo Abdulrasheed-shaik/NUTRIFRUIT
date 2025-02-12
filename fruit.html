@@ -25,6 +25,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/animations.css" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="css/popup.css" />
@@ -50,6 +51,14 @@
       padding: 2px 6px;
       font-size: 16px;
     }
+    @keyframes placeholderAnimation {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    #search-input::placeholder {
+      animation: placeholderAnimation 3s infinite;
+    }
   </style>
 </head>
 
@@ -72,7 +81,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0" onsubmit="return handleSearch(event)">
-                <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search for fruits" aria-label="Search">
                 <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               <ul class="navbar-nav">
@@ -296,6 +305,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       renderCards('fruit', 'Fresh Fruits', 'Discover our selection of fresh and juicy fruits.');
       updateCartCount();
+      animatePlaceholder();
     });
 
     function updateCartCount() {
@@ -460,6 +470,17 @@
           </div>
         `;
       }
+    }
+
+    function animatePlaceholder() {
+      const placeholders = ['fruits', 'vegetables', 'juices', 'ice creams'];
+      let index = 0;
+      const searchInput = document.getElementById('search-input');
+
+      setInterval(() => {
+        searchInput.placeholder = `Search for ${placeholders[index]}`;
+        index = (index + 1) % placeholders.length;
+      }, 3000);
     }
 
     document.querySelector('.form_container button[type="submit"]').addEventListener('click', function(event) {

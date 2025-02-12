@@ -55,6 +55,9 @@
                     <div class="mt-2">
                       <button type="submit" class="custom_dark-btn">Login</button>
                     </div>
+                    <div class="mt-2">
+                      <button type="button" class="custom_dark-btn" onclick="guestLogin()">Guest Login</button>
+                    </div>
                     <div class="mt-2 google-signin">
                       <div id="g_id_onload"
                            data-client_id="471020900545-rov0bhr1patrkqsbsqr2d2jgrh9n866s.apps.googleusercontent.com"
@@ -228,6 +231,20 @@
         });
       }
     });
+
+    function guestLogin() {
+      localStorage.setItem('isLogin', 'true');
+      Swal.fire({
+        title: 'Guest Login Successful',
+        text: 'You have successfully logged in as a guest!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.href = "./index.html";
+        }
+      });
+    }
 
     document.addEventListener('DOMContentLoaded', function () {
       // Generate QR codes

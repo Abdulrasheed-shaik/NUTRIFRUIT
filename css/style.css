@@ -176,12 +176,12 @@ a:focus {
 
 .form-inline .form-control {
   width: 500px; /* Increase the width of the search bar */
-  border-radius: 25px; /* Add rounded corners */
-  padding: 10px 20px; /* Add padding */
-  border: 2px solid #333; /* Change border color to match UI */
-  transition: border-color 0.3s ease; /* Add transition for border color */
-  background-color: #f7f7f7; /* Add background color */
-  color: #333; /* Add text color */
+  border-radius: 25px; 
+  padding: 10px 20px; 
+  border: 2px solid #333; 
+  transition: border-color 0.3s ease; 
+  background-color: #f7f7f7; 
+  color: #333; 
 }
 
 .form-inline .form-control::placeholder {
@@ -929,5 +929,14 @@ a:focus {
   gap: 0%;
   margin-left: 30px;
   margin-bottom: 30px;
+}
+.form-inline .form-control {
+  width: 300px; /* Increase the width of the search bar */
+  border-radius: 25px; 
+  padding: 10px 20px; 
+  border: 2px solid #333; 
+  transition: border-color 0.3s ease; 
+  background-color: #f7f7f7; 
+  color: #333; 
 }
 }

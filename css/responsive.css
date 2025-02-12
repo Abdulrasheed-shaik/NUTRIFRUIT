@@ -259,13 +259,13 @@
         font-size: 20px;
         margin-top: -20px;
     }
+    .form-inline .form-control {
+        width: 300px!important; /* Increase the width of the search bar */
+      }
 }
 
-@media (max-width: 480px) {}
-
-@media (max-width: 400px) {}
-
-@media (max-width: 360px) {}
+@media (max-width: 480px) {
+}
 
 @media (min-width: 1200px) {
     .container {
