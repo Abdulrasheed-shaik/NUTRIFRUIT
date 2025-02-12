@@ -28,14 +28,16 @@ body {
 .layout_padding-bottom {
   padding-bottom: 75px;
 }
-
+.custom_carousel-control{
+  margin-top: -100px;
+}
 
 .custom_dark-btn,
 .custom_orange-btn {
   display: inline-block;
   padding: 10px 0;
   text-align: center;
-  width: 15px;
+  width: 150px;
   outline: none;
   color: #f7f7f7;
   border: 1px solid transparent;
@@ -1006,16 +1008,15 @@ a:focus {
   color: #fc5d35;
 } 
 .products{
-  margin-top: 10px !important;
+  margin-top: 10% !important;
 }
 #product-cards-container{
-  margin-top: 10px !important;
+  margin-top: 10% !important;
   display: flex;
   row-gap: 50px; /* Add gap in container div */
 }
 .hero_area {
-  height: 40vh !important; /* Adjust height */
+  height: 55vh !important; /* Adjust height */
   background-color: #f7f7f7;
 }
-
 }
