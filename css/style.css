@@ -175,7 +175,7 @@ a:focus {
 }
 
 .form-inline .form-control {
-  width: 500px; /* Increase the width of the search bar */
+  width: 450px!important; /* Increase the width of the search bar */
   border-radius: 25px; 
   padding: 10px 20px; 
   border: 2px solid #333; 
