@@ -150,6 +150,7 @@
     .custom_heading.animate__animated {
       animation-duration: 0.5s;
     }
+
   </style>
 </head>
 
@@ -899,7 +900,7 @@
 
     function updateCartCount() {
       const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-      const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+      const cartCount = cartItems.length; // Count only distinct products
       document.getElementById('cart-count').textContent = cartCount;
     }
 

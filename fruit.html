@@ -144,6 +144,7 @@
       </p>
       <div class="row layout_padding2" id="fruit-cards-container">
         <!-- Fruit cards will be dynamically inserted here -->
+        <button class="btn custom_orange-btn" onclick="addToCart({ id: 1, name: 'Apple', price: { perKg: 100 }, image: 'images/apple.png', description: 'Fresh apples' })">Add to Cart</button>
       </div>
     </div>
   </section>
@@ -300,7 +301,6 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./js/data.js"></script>
-  <script src="js/cart.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       renderCards('fruit', 'Fresh Fruits', 'Discover our selection of fresh and juicy fruits.');
@@ -309,7 +309,7 @@
     });
 
     function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('checkoutCart')) || [];
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
       document.getElementById('cart-count').textContent = cart.length;
     }
 
@@ -347,7 +347,7 @@
 
     function addToCart(productId) {
       const product = products.find(p => p.id === productId);
-      let cart = JSON.parse(localStorage.getItem('checkoutCart')) || [];
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
       const existingProduct = cart.find(p => p.id === productId);
       if (existingProduct) {
         existingProduct.quantity += 1;
@@ -355,7 +355,7 @@
         product.quantity = 1;
         cart.push(product);
       }
-      localStorage.setItem('checkoutCart', JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
       updateCartCount();
       Swal.fire({
         icon: 'success',

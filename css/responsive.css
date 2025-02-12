@@ -1,3 +1,114 @@
+@media (max-width: 1120px) {
+    .hero_area {
+        height: auto;
+    }
+
+    .slider_section {
+        padding: 50px 0;
+
+    }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .layout_padding {
+    padding: 50px 0;
+  }
+
+  .layout_padding2 {
+    padding: 30px 0;
+  }
+
+  .layout_padding2-top {
+    padding-top: 30px;
+  }
+
+  .layout_padding2-bottom {
+    padding-bottom: 30px;
+  }
+
+  .layout_padding-top {
+    padding-top: 50px;
+  }
+
+  .layout_padding-bottom {
+    padding-bottom: 50px;
+  }
+
+  .custom_dark-btn,
+  .custom_orange-btn {
+    width: 120px;
+  }
+
+  .hero_area {
+    height: 40vh;
+  }
+
+  .form-inline .form-control {
+    width: 400px;
+  }
+
+  .slider_section {
+    padding: 40px 0;
+    height: 400px;
+  }
+
+  .slider_item-detail h1 {
+    font-size: 28px;
+  }
+
+  .client_img-box {
+    width: 300px;
+    height: 300px;
+  }
+
+  .fruit_card {
+    max-width: 400px;
+    height: 450px;
+  }
+
+  .fruit_image {
+    max-height: 130px;
+  }
+
+  .checkout_section .custom_heading {
+    font-size: 2rem;
+  }
+
+  .checkout_section .table th,
+  .checkout_section .table td {
+    padding: 10px;
+  }
+
+  .checkout_section .total_amount-container h4 {
+    font-size: 1.2rem;
+  }
+
+  .login_form-container {
+    padding: 15px;
+  }
+
+  .login_form-container input,
+  .login_form-container button {
+    width: 140%;
+  }
+
+  .google-signin .g_id_signin {
+    width: 140%;
+  }
+
+  .qr-code-container p {
+    font-size: 16px;
+  }
+
+  .qr-code-container canvas {
+    width: 120px;
+    height: 120px;
+  }
+}
 
 @media (max-width: 992px) {
     .custom_nav-container .nav_search-btn {
