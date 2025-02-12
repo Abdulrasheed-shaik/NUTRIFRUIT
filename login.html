@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Login - NutriFruit</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <style>
+    .footer_section{
+    position: fixed;
+    bottom: 0;
+}
+  </style>
+</head>
+
+<body>
+  <div class="hero_area sub_pages">
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="" /><span>
+              NutriFruit
+            </span>
+          </a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <section class="login_section layout_padding-top">
+    <div class="container">
+      <h2 id="form-heading" class="custom_heading animate__animated">Login</h2>
+      <div class="row layout_padding2">
+        <div class="col-md-6 mx-auto">
+          <div class="flip-container" id="flip-container">
+            <div class="flipper">
+              <div class="front">
+                <div class="login_form-container animate__animated animate__fadeInUp">
+                  <form id="login-form" onsubmit="handleLogin(event)">
+                    <div>
+                      <input type="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <div>
+                      <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <div class="mt-2">
+                      <button type="submit" class="custom_dark-btn">Login</button>
+                    </div>
+                    <div class="mt-2 google-signin">
+                      <div id="g_id_onload"
+                           data-client_id="471020900545-rov0bhr1patrkqsbsqr2d2jgrh9n866s.apps.googleusercontent.com"
+                           data-login_uri="http://localhost:5501"
+                           data-callback="handleCredentialResponse"
+                           data-auto_prompt="false">
+                      </div>
+                      <div class="g_id_signin"
+                           data-type="standard"
+                           data-shape="rectangular"
+                           data-theme="outline"
+                           data-text="sign_in_with"
+                           data-size="large"
+                           data-logo_alignment="left">
+                      </div>
+                    </div>
+                    <div class="mt-2 already">
+                      <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+                    </div>
+                  </form>
+                  <div class="qr-code-container text-center mt-2">
+                    <canvas id="qr-code-front"></canvas>
+                    <p>Scan to open in mobile</p>
+                  </div>
+                </div>
+              </div>
+              <div class="back">
+                <div class="login_form-container animate__animated animate__fadeInUp">
+                  <form id="register-form">
+                    <div>
+                      <input type="text" id="register-name" placeholder="Name" required>
+                    </div>
+                    <div>
+                      <input type="email" id="register-email" placeholder="Email" required>
+                    </div>
+                    <div>
+                      <input type="password" id="register-password" placeholder="Password" required>
+                    </div>
+                    <div class="mt-2">
+                      <button type="submit" class="custom_dark-btn">Register</button>
+                    </div>
+                    <div class="mt-2 google-signin">
+                      <div id="g_id_onload"
+                           data-client_id="471020900545-rov0bhr1patrkqsbsqr2d2jgrh9n866s.apps.googleusercontent.com"
+                           data-login_uri="http://localhost:5501"
+                           data-callback="handleCredentialResponse"
+                           data-auto_prompt="false">
+                      </div>
+                      <div class="g_id_signin"
+                           data-type="standard"
+                           data-shape="rectangular"
+                           data-theme="outline"
+                           data-text="sign_up_with"
+                           data-size="large"
+                           data-logo_alignment="left">
+                      </div>
+                    </div>
+                    <div class="mt-2 already">
+                      <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                    </div>
+                  </form>
+                  <div class="qr-code-container text-center mt-2">
+                    <canvas id="qr-code-back"></canvas>
+                    <p>Scan to open in mobile</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="container-fluid footer_section">
+    <p>
+      Copyright &copy; 2025 All Rights Reserved By SHAIK ABDUL RASHEED
+    </p>
+  </section>
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script>
+    function handleCredentialResponse(response) {
+      console.log('Encoded JWT ID token: ' + response.credential);
+      // Handle the response and perform further actions here
+      localStorage.setItem('isLogin', 'true');
+      Swal.fire({
+        title: 'Login Successful',
+        text: 'You have successfully logged in!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.href = "./index.html";
+        }
+      });
+    }
+
+    document.getElementById('show-register').addEventListener('click', function() {
+      document.getElementById('flip-container').classList.add('flipped');
+      updateFormHeading('Register');
+    });
+
+    document.getElementById('show-login').addEventListener('click', function() {
+      document.getElementById('flip-container').classList.remove('flipped');
+      updateFormHeading('Login');
+    });
+
+    function updateFormHeading(text) {
+      const heading = document.getElementById('form-heading');
+      heading.classList.remove('animate__fadeIn');
+      void heading.offsetWidth; // Trigger reflow to restart animation
+      heading.textContent = text;
+      heading.classList.add('animate__fadeIn');
+    }
+
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('register-name').value;
+      const email = document.getElementById('register-email').value;
+      const password = document.getElementById('register-password').value;
+
+      const user = {
+        name: name,
+        email: email,
+        password: password
+      };
+
+      localStorage.setItem('user', JSON.stringify(user));
+
+      Swal.fire({
+        title: 'Registration Successful',
+        text: 'You have successfully registered!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('flip-container').classList.remove('flipped');
+          updateFormHeading('Login');
+        }
+      });
+    });
+
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      const user = JSON.parse(localStorage.getItem('user'));
+
+      if (user && user.email === email && user.password === password) {
+        localStorage.setItem('isLogin', 'true');
+        Swal.fire({
+          title: 'Login Successful',
+          text: 'You have successfully logged in!',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.href = "./index.html";
+          }
+        });
+      } else {
+        Swal.fire({
+          title: 'Login Failed',
+          text: 'Invalid email or password.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Generate QR codes
+      const qrFront = new QRious({
+        element: document.getElementById('qr-code-front'),
+        value: 'http://localhost:5501/login.html', // Replace with your desired link
+        size: 200
+      });
+
+      const qrBack = new QRious({
+        element: document.getElementById('qr-code-back'),
+        value: 'http://localhost:5501/login.html', // Replace with your desired link
+        size: 200
+      });
+    });
+  </script>
+</body>
+
+</html>

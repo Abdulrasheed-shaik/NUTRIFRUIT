@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>NutriFruit</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- Razorpay -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <!-- Font Awesome for cart icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .swal2-confirm {
+      background-color: #fc5d35 !important;
+      border: none !important;
+    }
+    .swal2-confirm:hover {
+      background-color: white !important;
+      border: 1px solid #fc5d35 !important;
+      color: #fc5d35 !important;
+    }
+    .cart-icon {
+      position: relative;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .cart-count {
+      position: relative;
+      top: -20px;
+      right: 10px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero_area sub_pages">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="" /><span>
+              NutriFruit
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="fruit.html">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="cart.html">
+                    <i class="fas fa-shopping-cart cart-icon"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                  </a>
+                </li>
+              </ul>
+              
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+  </div>
+
+  <!-- checkout section -->
+  <section class="checkout_section layout_padding-top">
+    <div class="container">
+      <h2 class="custom_heading">Checkout</h2>
+      <div class="row layout_padding2">
+        <div class="col-12">
+          <table class="table table-bordered" id="checkout-items-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Checkout items will be dynamically inserted here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="total_amount-container text-right mt-4">
+        <h4>Total Amount: ₹<span id="total-amount">0.00</span></h4>
+        <h4>GST (18%): ₹<span id="gst-amount">0.00</span></h4>
+        <h4>Delivery Charges: ₹<span id="delivery-charges">50.00</span></h4>
+        <h4>Grand Total: ₹<span id="grand-total">0.00</span></h4>
+        <button class="btn custom_orange-btn mt-2" id="get-coupon-btn" onclick="applyCoupon()">Get Coupon</button>
+        <button class="btn custom_orange-btn mt-2" onclick="payNow()">Pay</button>
+      </div>
+    </div>
+  </section>
+  <!-- end checkout section -->
+
+  <section class="info_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            Fruits
+          </h5>
+          <ul>
+            <li>
+              Citrus Fruits
+            </li>
+            <li>
+              Berries
+            </li>
+            <li>
+              Stone Fruits
+            </li>
+            <li>
+              Tropical Fruits
+            </li>
+            <li>
+              Melons
+            </li>
+            <li>
+              Pomes 
+            </li>
+            <li>
+              Dried Fruit
+            </li>
+            <li>
+              Exotic Fruits 
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>
+            Services
+          </h5>
+          <ul>
+            <li>
+              All Over India Shipping
+            </li>
+            <li>
+              24/7 Support
+            </li>
+            <li>
+              Customer Care
+            </li>
+            <li>
+              Bulk & Gift Packaging
+            </li>
+            <li>
+              Express Delivery & Tracking 
+            </li>
+            <li>
+              Customized Juice Blends 
+            </li>
+            <li>
+              Loyalty Rewards & Discount
+            </li>
+            <li>
+              Seasonal & Exotic Collections
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>
+            Help
+          </h5>
+          <ul>
+            <li>
+              FAQs 
+            </li>
+            <li>
+              Contact Us
+            </li>
+            <li>
+              Wallet FAQs
+            </li>
+            <li>
+              Wallet T&Cs
+            </li>
+            <li>
+              Vendor Connect
+            </li>
+            <li>
+              Refund & Cancellation Policy
+            </li>
+            <li>
+              Privacy Policy
+            </li>
+            <li>
+              Terms & Conditions
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <div class="social_container">
+            <h5>
+              Follow Us
+            </h5>
+            <div class="social-box">
+              <a href="">
+                <img src="images/fb.png" alt="">
+              </a>
+
+              <a href="">
+                <img src="images/twitter.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/linkedin.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/instagram.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="subscribe_container">
+            <h5>
+              Subscribe Now
+            </h5>
+            <div class="form_container">
+              <form action="">
+                <input type="email">
+                <button type="submit">
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      Copyright &copy; 2025 All Rights Reserved By SHAIK ABDUL RASHEED
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="js/cart.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderCheckoutItems();
+      updateCartCount();
+    });
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('checkoutCart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    function renderCheckoutItems() {
+      const checkoutTableBody = document.querySelector('#checkout-items-table tbody');
+      const totalAmountElement = document.getElementById('total-amount');
+      const gstAmountElement = document.getElementById('gst-amount');
+      const deliveryChargesElement = document.getElementById('delivery-charges');
+      const grandTotalElement = document.getElementById('grand-total');
+      const cart = JSON.parse(localStorage.getItem('checkoutCart')) || [];
+      const totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
+      const gstAmount = totalAmount * 0.18;
+      const deliveryCharges = 50.00;
+      const grandTotal = totalAmount + gstAmount + deliveryCharges;
+
+      checkoutTableBody.innerHTML = ''; // Clear existing items
+      cart.forEach(product => {
+        const pricePerUnit = product.price.perKg || product.price.perDozen || product.price.perPiece || product.price.perLiter || product.price.per200g;
+        const totalPrice = pricePerUnit * product.quantity;
+        const checkoutRow = document.createElement('tr');
+        checkoutRow.innerHTML = `
+          <td><img src="${product.image}" alt="${product.name}" class="img-fluid" style="max-width: 100px;"></td>
+          <td>${product.name}</td>
+          <td>${product.description}</td>
+          <td>₹${pricePerUnit.toFixed(2)}</td>
+          <td>${product.quantity}</td>
+          <td>₹${totalPrice.toFixed(2)}</td>
+        `;
+        checkoutTableBody.appendChild(checkoutRow);
+      });
+
+      totalAmountElement.textContent = totalAmount.toFixed(2);
+      gstAmountElement.textContent = gstAmount.toFixed(2);
+      deliveryChargesElement.textContent = deliveryCharges.toFixed(2);
+      grandTotalElement.textContent = grandTotal.toFixed(2);
+    }
+
+    function applyCoupon() {
+      const couponCode = 'DISCOUNT10';
+      Swal.fire({
+        title: 'Coupon Code',
+        text: `Use coupon code "${couponCode}" to get a discount.`,
+        icon: 'info',
+        confirmButtonText: 'Apply'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Apply the coupon code
+          const totalAmountElement = document.getElementById('total-amount');
+          const gstAmountElement = document.getElementById('gst-amount');
+          const deliveryChargesElement = document.getElementById('delivery-charges');
+          const grandTotalElement = document.getElementById('grand-total');
+          let totalAmount = parseFloat(totalAmountElement.textContent);
+          const discount = totalAmount * 0.10;
+          totalAmount -= discount;
+          const gstAmount = totalAmount * 0.18;
+          const deliveryCharges = 50.00;
+          const grandTotal = totalAmount + gstAmount + deliveryCharges;
+
+          totalAmountElement.textContent = totalAmount.toFixed(2);
+          gstAmountElement.textContent = gstAmount.toFixed(2);
+          deliveryChargesElement.textContent = deliveryCharges.toFixed(2);
+          grandTotalElement.textContent = grandTotal.toFixed(2);
+
+          Swal.fire({
+            icon: 'success',
+            title: 'Coupon Applied',
+            text: `Coupon code "${couponCode}" has been applied. You saved ₹${discount.toFixed(2)}.`,
+            showConfirmButton: false,
+            timer: 1500
+          });
+
+          document.getElementById('get-coupon-btn').disabled = true;
+        }
+      });
+    }
+
+    function payNow() {
+      Swal.fire({
+        title: 'Enter Your Details',
+        html: `
+          <input type="text" id="name" class="swal2-input" placeholder="Name">
+          <input type="text" id="mobile" class="swal2-input" placeholder="Mobile Number">
+          <input type="email" id="email" class="swal2-input" placeholder="Email">
+          <input type="text" id="address" class="swal2-input" placeholder="Address">
+          <input type="text" id="pincode" class="swal2-input" placeholder="Pincode">
+          <input type="text" id="state" class="swal2-input" placeholder="State">
+        `,
+        showCloseButton: true,
+        confirmButtonText: 'Confirm & Pay',
+        focusConfirm: false,
+        preConfirm: () => {
+          const name = Swal.getPopup().querySelector('#name').value;
+          const mobile = Swal.getPopup().querySelector('#mobile').value;
+          const email = Swal.getPopup().querySelector('#email').value;
+          const address = Swal.getPopup().querySelector('#address').value;
+          const pincode = Swal.getPopup().querySelector('#pincode').value;
+          const state = Swal.getPopup().querySelector('#state').value;
+          if (!name || !mobile || !email || !address || !pincode || !state) {
+            Swal.showValidationMessage(`Please enter all fields`);
+          }
+          return { name, mobile, email, address, pincode, state };
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const userDetails = result.value;
+          localStorage.setItem('userDetails', JSON.stringify(userDetails));
+          initiateRazorpayPayment(userDetails);
+        }
+      });
+    }
+
+    function initiateRazorpayPayment(userDetails) {
+      const grandTotalElement = document.getElementById('grand-total').textContent;
+      const totalAmount = Math.round(parseFloat(grandTotalElement) * 100); // Convert to paise and round off
+      const options = {
+        key: 'rzp_test_FKe1VhbPy3SA9F', // Replace with your Razorpay key ID
+        amount: totalAmount,
+        currency: 'INR',
+        name: 'NutriFruit',
+        description: 'Order Payment',
+        handler: function (response) {
+          userDetails.paymentId = response.razorpay_payment_id;
+          localStorage.setItem('userDetails', JSON.stringify(userDetails));
+          localStorage.setItem('grandTotal', (totalAmount / 100).toFixed(2)); // Store grand total
+          window.location.href = 'receipt.html';
+        },
+        prefill: {
+          name: userDetails.name,
+          email: userDetails.email,
+          contact: userDetails.mobile
+        },
+        theme: {
+          color: '#fc5d35'
+        }
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+
+    document.querySelector('.form_container button[type="submit"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      const email = document.querySelector('.form_container input[type="email"]').value.trim();
+
+      if (!email) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Email is required.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+        return;
+      }
+
+      Swal.fire({
+        title: 'Subscribed!',
+        text: 'Thank you for subscribing. You will receive our latest updates.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+    });
+  </script>
+</body>
+
+</html>

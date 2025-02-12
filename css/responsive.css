@@ -1,0 +1,285 @@
+@media (max-width: 1120px) {
+    .hero_area {
+        height: auto;
+    }
+
+    .slider_section {
+        padding: 50px 0;
+
+    }
+}
+
+@media (max-width: 992px) {
+    .custom_nav-container .nav_search-btn {
+        background-position: center;
+    }
+
+    .service_section .card-deck {
+
+        flex-direction: column;
+
+    }
+
+    .service_section .card-deck .card {
+        margin-bottom: 25px;
+    }
+
+    .cart_section .fruit_card {
+        max-width: 350px;
+    }
+
+    .checkout_section .table th,
+    .checkout_section .table td {
+        padding: 8px;
+    }
+
+    .checkout_section .total_amount-container h4 {
+        font-size: 1.2rem;
+    }
+
+    .checkout_section .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .slider_img-box {
+
+        width: 85%;
+        margin: 65px auto;
+
+    }
+
+    .slider_section .custom_carousel-control {
+
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 105px;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .fruit_section .fruit_detail-box {
+
+        margin-bottom: 40px;
+        text-align: center;
+
+    }
+
+    .fruit_detail-box>div {
+
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .contact_section {
+        background-size: 105px;
+    }
+
+    .contact_section input {
+
+        background-color: transparent;
+
+    }
+
+    .info_section .col-md-3 {
+        text-align: center;
+    }
+
+    .info_section .col-md-3:not(:nth-last-child(1)) {
+
+        margin-bottom: 35px;
+    }
+
+    .tasty_section h2 {
+
+        font-size: 80px;
+    }
+
+    .cart_section .fruit_card {
+        max-width: 300px;
+    }
+
+    .total_amount-container {
+        text-align: center;
+    }
+
+    .total_amount-container h4 {
+        font-size: 1.5rem;
+    }
+
+    .total_amount-container button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .empty-cart-container img {
+        max-width: 250px;
+    }
+
+    .empty-cart-container h4 {
+        font-size: 1.2rem;
+    }
+
+    .empty-cart-container a {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .checkout_section .table th,
+    .checkout_section .table td {
+        padding: 6px;
+    }
+
+    .checkout_section .total_amount-container {
+        text-align: center;
+    }
+
+    .checkout_section .total_amount-container h4 {
+        font-size: 1rem;
+    }
+
+    .checkout_section .btn {
+        font-size: 0.9rem;
+    }
+
+    .receipt_section .receipt_details {
+        text-align: center;
+    }
+
+    .receipt_section .receipt_details p {
+        font-size: 1rem;
+    }
+
+    .receipt_section .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .login_section {
+        padding-top: 20px;
+    }
+    .login_form-container {
+        padding: 20px;
+        margin-bottom: 100px;
+        margin-top: -50px;
+    }
+    .custom_heading {
+        font-size: 24px;
+        margin-top: -20px;
+    }
+    .flip-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .slider_item-container .slider_item-detail {
+
+        text-align: center;
+
+    }
+
+    .slider_item-container .slider_item-detail .d-flex {
+
+        justify-content: center;
+
+    }
+
+    .cart_section .fruit_card {
+        max-width: 100%;
+    }
+
+    .cart_section .quantity-controls {
+        flex-direction: column;
+    }
+
+    .cart_section .quantity-controls button {
+        margin: 5px 0;
+    }
+
+    .cart_section .quantity-controls .quantity {
+        margin: 10px 0;
+    }
+
+    .total_amount-container h4 {
+        font-size: 1.2rem;
+    }
+
+    .total_amount-container button {
+        font-size: 1rem;
+    }
+
+    .empty-cart-container h4 {
+        font-size: 1rem;
+    }
+
+    .empty-cart-container a {
+        font-size: 1rem;
+    }
+
+    .checkout_section .table th,
+    .checkout_section .table td {
+        padding: 4px;
+    }
+
+    .checkout_section .total_amount-container h4 {
+        font-size: 0.9rem;
+    }
+
+    .checkout_section .btn {
+        font-size: 0.8rem;
+    }
+
+    .receipt_section .receipt_details {
+        text-align: center;
+    }
+
+    .receipt_section .receipt_details p {
+        font-size: 0.9rem;
+    }
+
+    .receipt_section .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .login_form-container {
+        padding: 15px;
+        margin-top: -50px;
+        margin-bottom: 100px;
+    }
+    .custom_heading {
+        font-size: 20px;
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 480px) {}
+
+@media (max-width: 400px) {}
+
+@media (max-width: 360px) {}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+
+    .cart_section .fruit_card {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .checkout_section .table th,
+    .checkout_section .table td {
+        padding: 10px;
+    }
+}

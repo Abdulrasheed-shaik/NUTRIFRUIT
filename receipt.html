@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Receipt - NutriFruit</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/responsive.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <div class="hero_area sub_pages">
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="" /><span>
+              NutriFruit
+            </span>
+          </a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <section class="receipt_section layout_padding-top">
+    <div class="container">
+      <h2 class="custom_heading">Payment Receipt</h2>
+      <div class="receipt_details" id="receipt-content">
+        <h4>Thank you for your purchase!</h4>
+        <p><strong>Name:</strong> <span id="user-name"></span></p>
+        <p><strong>Mobile Number:</strong> <span id="user-mobile"></span></p>
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+        <p><strong>Address:</strong> <span id="user-address"></span></p>
+        <p><strong>Pincode:</strong> <span id="user-pincode"></span></p>
+        <p><strong>State:</strong> <span id="user-state"></span></p>
+        <p><strong>Payment ID:</strong> <span id="payment-id"></span></p>
+        <p><strong>Total Amount:</strong> ₹<span id="total-amount"></span></p>
+        <p><strong>Estimated Delivery Date:</strong> <span id="delivery-date"></span></p>
+      </div>
+      <button class="btn custom_orange-btn mt-4" onclick="downloadReceipt()">Download Receipt</button>
+    </div>
+  </section>
+
+  <section class="info_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            Fruits
+          </h5>
+          <ul>
+            <li>
+              Citrus Fruits
+            </li>
+            <li>
+              Berries
+            </li>
+            <li>
+              Stone Fruits
+            </li>
+            <li>
+              Tropical Fruits
+            </li>
+            <li>
+              Melons
+            </li>
+            <li>
+              Pomes 
+            </li>
+            <li>
+              Dried Fruit
+            </li>
+            <li>
+              Exotic Fruits 
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>
+            Services
+          </h5>
+          <ul>
+            <li>
+              All Over India Shipping
+            </li>
+            <li>
+              24/7 Support
+            </li>
+            <li>
+              Customer Care
+            </li>
+            <li>
+              Bulk & Gift Packaging
+            </li>
+            <li>
+              Express Delivery & Tracking 
+            </li>
+            <li>
+              Customized Juice Blends 
+            </li>
+            <li>
+              Loyalty Rewards & Discount
+            </li>
+            <li>
+              Seasonal & Exotic Collections
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>
+            Help
+          </h5>
+          <ul>
+            <li>
+              FAQs 
+            </li>
+            <li>
+              Contact Us
+            </li>
+            <li>
+              Wallet FAQs
+            </li>
+            <li>
+              Wallet T&Cs
+            </li>
+            <li>
+              Vendor Connect
+            </li>
+            <li>
+              Refund & Cancellation Policy
+            </li>
+            <li>
+              Privacy Policy
+            </li>
+            <li>
+              Terms & Conditions
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <div class="social_container">
+            <h5>
+              Follow Us
+            </h5>
+            <div class="social-box">
+              <a href="">
+                <img src="images/fb.png" alt="">
+              </a>
+
+              <a href="">
+                <img src="images/twitter.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/linkedin.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/instagram.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="subscribe_container">
+            <h5>
+              Subscribe Now
+            </h5>
+            <div class="form_container">
+              <form action="">
+                <input type="email">
+                <button type="submit">
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid footer_section">
+    <p>
+      Copyright &copy; 2025 All Rights Reserved By SHAIK ABDUL RASHEED
+    </p>
+  </section>
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+      const grandTotal = localStorage.getItem('grandTotal');
+      if (userDetails) {
+        document.getElementById('user-name').textContent = userDetails.name;
+        document.getElementById('user-mobile').textContent = userDetails.mobile;
+        document.getElementById('user-email').textContent = userDetails.email;
+        document.getElementById('user-address').textContent = userDetails.address;
+        document.getElementById('user-pincode').textContent = userDetails.pincode;
+        document.getElementById('user-state').textContent = userDetails.state;
+        document.getElementById('payment-id').textContent = userDetails.paymentId;
+        document.getElementById('total-amount').textContent = grandTotal;
+
+        const deliveryDate = new Date();
+        deliveryDate.setDate(deliveryDate.getDate() + 5); // Estimated delivery in 5 days
+        document.getElementById('delivery-date').textContent = deliveryDate.toDateString();
+      }
+    });
+
+    async function downloadReceipt() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const receiptContent = document.getElementById('receipt-content');
+      const canvas = await html2canvas(receiptContent);
+      const imgData = canvas.toDataURL('image/png');
+      doc.addImage(imgData, 'PNG', 10, 10);
+      doc.save('receipt.pdf');
+      localStorage.removeItem('userDetails');
+      localStorage.removeItem('grandTotal');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+        history.replaceState(null, null, 'index.html');
+      }, 1000);
+    }
+
+    document.querySelector('.form_container button[type="submit"]').addEventListener('click', function(event) {
+      event.preventDefault();
+      const email = document.querySelector('.form_container input[type="email"]').value.trim();
+
+      if (!email) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Email is required.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+        return;
+      }
+
+      Swal.fire({
+        title: 'Subscribed!',
+        text: 'Thank you for subscribing. You will receive our latest updates.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+    });
+  </script>
+</body>
+
+</html>
