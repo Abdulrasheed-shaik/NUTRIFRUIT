@@ -328,7 +328,15 @@
 }
 .login_form-container form div {
   margin-bottom: -2px;
-}  
+} 
+.products{
+    margin-top: 10% !important;
+  }
+  #product-cards-container{
+    margin-top: 100px;
+    display: flex;
+    row-gap: 50px; /* Add gap in container div */
+  } 
 }
 @media (max-width: 768px) {
 
@@ -549,6 +557,14 @@
     .form-inline .form-control {
         width: 300px!important; /* Increase the width of the search bar */
       }
+      .products{
+  margin-top: 50% !important;
+}
+#product-cards-container{
+  margin-top: 150px;
+  display: flex;
+  row-gap: 50px; /* Add gap in container div */
+}
 }
 
 @media (max-width: 480px) {
