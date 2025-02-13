@@ -126,7 +126,7 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="cart.html">
+                  <a class="nav-link" href="./cart.html">
                     <i class="fas fa-shopping-cart cart-icon"></i>
                     <span class="cart-count" id="cart-count">0</span>
                   </a>
@@ -513,6 +513,38 @@
         confirmButtonText: 'OK'
       });
     });
+    const cartLink = document.querySelector('a[href="./cart.html"]');
+      cartLink.addEventListener('click', function (event) {
+        const isLogin = localStorage.getItem('isLogin') === 'true';
+        if (!isLogin) {
+          event.preventDefault();
+          Swal.fire({
+            title: 'Access Denied',
+            text: 'Please login to access the cart.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+          });
+        }
+      });
+      document.addEventListener('DOMContentLoaded', function () {
+    const isLogin = localStorage.getItem('islogin') === 'true'; // Check if the user is logged in
+    const buttons = document.querySelectorAll('.custom_dark-btn');
+
+    if (!isLogin) {
+        buttons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the action from happening
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Access Denied',
+                    text: 'You must be logged in to use this feature!',
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+    }
+});
+
   </script>
 </body>
 

@@ -702,6 +702,38 @@
       renderClientCards();
       updateAuthButton();
       updateCartCount();
+
+      // Check login status and deny access to cart if not logged in
+      const cartLink = document.querySelector('a[href="./cart.html"]');
+      cartLink.addEventListener('click', function (event) {
+        const isLogin = localStorage.getItem('isLogin') === 'true';
+        if (!isLogin) {
+          event.preventDefault();
+          Swal.fire({
+            title: 'Access Denied',
+            text: 'Please login to access the cart.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+          });
+        }
+      });
+
+      // Check login status and deny access to all custom_dark-btn in slider_item-detail if not logged in
+      const customDarkBtns = document.querySelectorAll('.slider_item-detail .custom_dark-btn');
+      customDarkBtns.forEach(btn => {
+        btn.addEventListener('click', function (event) {
+          const isLogin = localStorage.getItem('isLogin') === 'true';
+          if (!isLogin) {
+            event.preventDefault();
+            Swal.fire({
+              title: 'Access Denied',
+              text: 'Please login to access this feature.',
+              icon: 'warning',
+              confirmButtonText: 'OK'
+            });
+          }
+        });
+      });
     });
 
     function renderProductCards() {
