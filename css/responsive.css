@@ -142,7 +142,7 @@
         margin-top: 10px;
     }
 } */
-@media (min-width:769px) and (max-width:1024px) {
+@media (min-width:769px) and (max-width:1200px) {
     .custom_dark-btn,
 .custom_orange-btn {
   padding: 5px 0;
@@ -330,20 +330,48 @@
   margin-bottom: -2px;
 } 
 .products{
-    margin-top: 10% !important;
+    margin-top: 20% !important;
   }
   #product-cards-container{
     margin-top: 100px;
     display: flex;
     row-gap: 50px; /* Add gap in container div */
   } 
+  
+  .slider_img-box {
+    width: 100%;
+  }
+  .product-card img {
+    width: 80%;
+    height: 200px;
+    object-fit: contain;
+    aspect-ratio: 8/5;
+    margin: 0 auto;
+    
+  }
+  .fruit_status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-weight: 300;
+    color: #fff;
+    font-size: 15px !important;
+    background-color: #fc5d35; /* Updated orange color for status */
+  }
+  .fruit_card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px !important; /* Increased width */
+    height: 450px !important; 
+}
 }
 @media (max-width: 768px) {
 
     .slider_img-box {
-
-        width: 85%;
-        margin: 65px auto;
+      display: none;
 
     }
 
@@ -427,11 +455,6 @@
         margin-top: 10px;
     }
 
-    .checkout_section .table th,
-    .checkout_section .table td {
-        padding: 6px;
-    }
-
     .checkout_section .total_amount-container {
         text-align: center;
     }
@@ -472,21 +495,31 @@
     .flip-container {
         width: 100%;
     }
+    .slider_section .custom_carousel-control {
+      position: relative;
+      top: 15%;
+      left: 40%;
+      width: 105px;
+      transform: translateY(-50%);
+    }
 }
 
 @media (max-width: 576px) {
     .slider_item-container .slider_item-detail {
-
         text-align: center;
-
     }
 
     .slider_item-container .slider_item-detail .d-flex {
-
         justify-content: center;
 
     }
-
+    .slider_section .custom_carousel-control {
+      position: relative;
+      top: 30%;
+      left: 40%;
+      width: 105px;
+      transform: translateY(-50%);
+    }
     .cart_section .fruit_card {
         max-width: 100%;
     }

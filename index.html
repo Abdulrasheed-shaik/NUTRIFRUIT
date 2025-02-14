@@ -78,9 +78,11 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
     .product-card img {
-      width: 100%;
+      width: 60%;
       height: 200px;
-      object-fit: fill;
+      object-fit: contain;
+      aspect-ratio: 8/5;
+      margin: 0 auto;
     }
     .product-card .card-body {
       padding: 15px;
@@ -399,7 +401,7 @@
             </p>
             <div>
               <a href="./fruit.html" class="custom_dark-btn">
-                Buy Now
+               View
               </a>
             </div>
           </div>
@@ -421,7 +423,7 @@
             </p>
             <div>
               <a href="./fruit.html" class="custom_dark-btn">
-                Buy Now
+                view
               </a>
             </div>
           </div>
@@ -443,7 +445,7 @@
             </p>
             <div>
               <a href="./fruit.html" class="custom_dark-btn">
-                Buy Now
+                view
               </a>
             </div>
           </div>
@@ -750,7 +752,7 @@
               <h5 class="card-title">${product.name}</h5>
               <p class="card-text">${product.description}</p>
               <p class="card-price">Price: ₹${product.price.perKg || product.price.perDozen || product.price.perPiece || product.price.perLiter || product.price.per200g}</p>
-              <a href="./fruit.html" class="btn btn-primary">Buy Now</a>
+              <a href="./fruit.html" class="btn btn-primary">View Product</a>
             </div>
           </div>
         `;
