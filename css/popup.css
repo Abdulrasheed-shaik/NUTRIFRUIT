@@ -16,7 +16,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 100%; /* Increased width */
-  max-width: 80%; /* Increased max-width */
+  max-width: 60%; /* Increased max-width */
   border-radius: 10px;
   animation: fadeIn 0.5s;
 }
@@ -53,7 +53,7 @@
 }
 
 .search-result-card .card-img-top {
-  height: 250px; /* Increased height */
+  height: 200px; /* Increased height */
   object-fit: fill;
   width: 100%; /* Ensure image fits the card width */
 }
@@ -85,7 +85,8 @@
   border-color: #ff5722;
   color: #fff;
   text-transform: uppercase;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 700;
   transition: background-color 0.3s, border-color 0.3s;
 }
 

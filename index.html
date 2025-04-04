@@ -121,6 +121,14 @@
       display: flex;
       row-gap: 50px; /* Add gap in container div */
     }
+    .pagination .page-item .page-link{
+      color: black;
+    }
+    .pagination .page-item.active .page-link {
+      background-color: #fc5d35; /* Active page background color */
+      border-color: #fc5d35; /* Match border color */
+      color: white; /* Text color for active page */
+    }
   </style>
 </head>
 
@@ -163,7 +171,7 @@
     <!-- end header section -->
     <!-- slider section -->
     <section class=" slider_section position-relative">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleControls" class="carousel slide pl-md-5" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="slider_item-box">
@@ -297,6 +305,13 @@
       <h2 class="custom_heading">Our Products</h2>
       <div class="row" id="product-cards-container" class="animate__animated animate__fadeInUp">
         <!-- Product cards will be dynamically inserted here -->
+      </div>
+      <div class="pagination-container d-flex justify-content-center mt-4">
+        <nav>
+          <ul class="pagination" id="pagination">
+            <!-- Pagination buttons will be dynamically inserted here -->
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -738,11 +753,23 @@
       });
     });
 
-    function renderProductCards() {
+    function renderProductCards(page = 1) {
       const productContainer = document.getElementById('product-cards-container');
-      productContainer.innerHTML = ''; // Clear existing cards
+      const paginationContainer = document.getElementById('pagination');
+      const productsPerPage = 15;
       const availableProducts = products.filter(product => product.available === 'true');
-      availableProducts.forEach(product => {
+      const totalPages = Math.ceil(availableProducts.length / productsPerPage);
+
+      // Clear existing cards and pagination
+      productContainer.innerHTML = '';
+      paginationContainer.innerHTML = '';
+
+      // Calculate start and end indices for the current page
+      const startIndex = (page - 1) * productsPerPage;
+      const endIndex = Math.min(startIndex + productsPerPage, availableProducts.length);
+
+      // Render products for the current page
+      availableProducts.slice(startIndex, endIndex).forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'col-md-4 d-flex justify-content-center align-items-center animate__animated animate__fadeInUp';
         productCard.innerHTML = `
@@ -758,6 +785,14 @@
         `;
         productContainer.appendChild(productCard);
       });
+
+      // Render pagination buttons
+      for (let i = 1; i <= totalPages; i++) {
+        const pageItem = document.createElement('li');
+        pageItem.className = `page-item ${i === page ? 'active' : ''}`;
+        pageItem.innerHTML = `<a class="page-link" href="javascript:void(0);" onclick="renderProductCards(${i})">${i}</a>`;
+        paginationContainer.appendChild(pageItem);
+      }
     }
 
     function renderClientCards() {
@@ -907,7 +942,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      const placeholders = ['fruits', 'vegetables', 'juices', 'ice creams'];
+      const placeholders = ['\"fruits\"', '\"vegetables\"', '\"juices\"', '\"ice creams\"'];
       let index = 0;
       const searchInput = document.getElementById('search-input');
 
